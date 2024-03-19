@@ -1,0 +1,60 @@
+.dessert-page {
+  padding: 20px;
+  margin-top: 6%;
+}
+.dessert-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 8%;
+}
+ 
+.dessert-item {
+  margin: 10px;
+  padding: 10px;
+  border: 0.3px solid #ccc;
+  height: 20%;
+  border-radius: 10px;
+  width: 300px;
+}
+ 
+.dessert-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+ 
+.dessert-details {
+  margin-top: 10px;
+  font-size: medium;
+}
+ 
+.dessert-details h3 {
+  margin: 5px 0;
+  font-size: medium;
+}
+ 
+.dessert-details p {
+  margin: 5px 0;
+  font-size: small;
+}
+
+ul{
+  display: flex;
+  list-style: none;
+}
+li{
+  margin: 0px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: ProximaNova,arial,Helvetica Neue,sans-serif;
+  cursor: pointer;
+  padding: 10px;
+}
+
+li:hover{
+  color: #fc8019;
+}
+i{
+  position: relative;
+}
