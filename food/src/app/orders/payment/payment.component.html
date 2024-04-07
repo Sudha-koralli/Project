@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
     <div class="container">
       <h3>Payment Options</h3>
     <h2>Amount to be paid:₹ {{ totalAmount }}</h2>
@@ -15,7 +15,7 @@
           <option value="{{ PaymentMethod.COD }}">Cash on Delivery</option>
         </select>
       </div>
-      <!-- Credit Card Payment -->
+    
       <div *ngIf="selectedPaymentMethod === PaymentMethod.CreditCard">
         <div class="form-group">
           <input type="text" placeholder="Enter Card Number" class="form-control" name="cardNumber" [(ngModel)]="cardNumber" required>
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <!-- Debit Card Payment -->
+    
       <div *ngIf="selectedPaymentMethod === PaymentMethod.DebitCard">
         <div class="form-group">
           <input type="text" placeholder="Enter Card Number" class="form-control" name="cardNumber" [(ngModel)]="cardNumber" required>
@@ -46,14 +46,14 @@
           <input type="text" placeholder="Enter OTP"class="form-control" name="otp" [(ngModel)]="otp" [disabled]="!otpEnabled">
         </div>
       </div>
-  <!-- UPI Payment -->
+
     <div *ngIf="selectedPaymentMethod === PaymentMethod.UPI">
     <div class="form-group">
       <input type="text" placeholder="Enter UPI ID" class="form-control" name="upiId" [(ngModel)]="upiId" required>
     </div>
     </div>
 
-    <!-- Wallet Payment -->
+  
     <div *ngIf="selectedPaymentMethod === PaymentMethod.Wallet">
     <div class="form-group">
       <label for="walletType" style="color: white;">Select Wallet Type:</label>
@@ -73,7 +73,7 @@
     </div>
     </div>
 
-    <!-- Net Banking Payment -->
+   
     <div *ngIf="selectedPaymentMethod === PaymentMethod.NetBanking">
     <div class="form-group">
       <label for="bankName" style="color: white;">Select Bank:</label>
@@ -93,7 +93,7 @@
     </div>
     </div>
 
-    <!-- Cash on Delivery Payment -->
+  
     <div *ngIf="selectedPaymentMethod === PaymentMethod.COD">
     <div class="form-group" style="color: white;">
     <h5> Your order is on the way to your home.</h5>
@@ -105,4 +105,4 @@
     </form>
     </div>
   </body>
-
+ -->

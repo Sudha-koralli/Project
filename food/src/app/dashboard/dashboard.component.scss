@@ -8,7 +8,11 @@
 *::-webkit-scrollbar {
     display: none;
   }
-
+.section {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    white-space: nowrap; /* Prevent wrapping to next line */
+}
 body{
     width: 100%;
     display: flex;
@@ -75,4 +79,79 @@ a{
 }
 a:hover{
     color: #fc8019;
+}
+img {
+    width: 16px;
+    cursor: pointer;
+    padding: 10px;
+    border: solid 6px transparent;
+}
+img:hover {
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 3px rgba(127, 127, 127, 0.15);
+}
+/* CSS for restaurant information section */
+.content {
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  #restaurant {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  #restaurant-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .box1 {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  
+  .bi.bi-phone {
+    color: blue; 
+  }
+  
+  
+  .bi.bi-geo-alt {
+    color: green; 
+  }
+  #category-section {
+    margin-bottom: -80px; 
+}
+#categories,
+#restaurant {
+    font-size: 30px;
+    margin-bottom: 10px; 
+}
+
+
+.box1 {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.box2 {
+    flex: 0 0 auto; 
+    width: 150px;
+    margin-right: 20px; 
+}
+#category-section {
+    margin-bottom: 20px;
+}
+
+
+.restaurant-heading {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

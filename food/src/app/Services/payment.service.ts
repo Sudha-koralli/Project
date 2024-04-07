@@ -6,9 +6,11 @@ import { Observable } from 'rxjs';
 })
 export class PaymentService {
 
-  private apiUrl = ''; 
+  private apiUrl = ''; // Replace this with your actual API endpoint
 
   constructor(private http: HttpClient) { }
+
+  // Method to make a POST request to process payment
   processPayment(paymentData: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, paymentData);
   }

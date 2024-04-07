@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../Services/login.service';
 import Swal from 'sweetalert2';
-export class register {
+export class Register {
   email: string;
   password: string;
 }
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,12 +16,14 @@ export class register {
 })
 export class LoginComponent{
   loginform!: FormGroup;
-  user: register;
+  user: Register;
   loading = false;
   submitted = false;
   error = '';
+  isLoggedIn: boolean = false;
+  displayName=''
   constructor(private router: Router, private loginservice:LoginService) {
-    this.user = {} as register;
+    this.user = {} as Register;
   }
 
   ngOnInit(): void {
@@ -56,23 +58,30 @@ export class LoginComponent{
   loginUser() {
     this.user = this.loginform.value
     this.loginservice.loginUser(this.user).subscribe({
-      next: (data) =>{ 
+      next: (data) =>{
+        const user = data; 
+        sessionStorage.setItem('userid', JSON.stringify(user)); 
+        sessionStorage.setItem('addressId', JSON.stringify(user.address));
+        this.isLoggedIn = true
+        console.log(this.isLoggedIn)
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Registration successful!'
+          text: 'Login successful!'
         }).then
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard'],{ queryParams: { isLoggedIn: 'true' } })
       },
       error: (e) => {
         console.log(e);
         if (e.status === 200) {
+          this.isLoggedIn = true;
+          console.log(this.isLoggedIn)
           Swal.fire({
             icon: 'success',
             title: 'Success',
             text: 'Login successful!'
           }).then
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard'],{ queryParams: { isLoggedIn: 'true' } })
         } else {
           Swal.fire({
             icon: 'error',
@@ -84,6 +93,7 @@ export class LoginComponent{
   });
   }
   
+  
   forgotPassword() {
     this.router.navigate(['/forgot'])
   }
@@ -91,4 +101,5 @@ export class LoginComponent{
   register() {
     this.router.navigate(['/register'])
   }
+
 }

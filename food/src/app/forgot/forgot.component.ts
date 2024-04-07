@@ -1,56 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormControl} from '@angular/forms';
-export class register {
-  email: string;
-  cemail: string;
-}
+import { ForgotService } from '../forgot.service';
+ 
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
   styleUrls: ['./forgot.component.scss']
 })
-export class ForgotComponent{
-  emailform!: FormGroup;
-  user: register;
-
-  constructor(public router: Router) {this.user = {} as register;}
+export class ForgotComponent implements OnInit {
+  emailForm!: FormGroup;
+  errorMessage: string = '';
+ 
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private forgotService: ForgotService
+  ) {}
  
   ngOnInit(): void {
-    this.emailform = new FormGroup({
-      email: new FormControl(this.user.email, [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(250),
-        Validators.pattern(
-          /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-        ),
-      ]),
-      cemail: new FormControl(this.user.cemail, [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(250),
-        Validators.pattern(
-          /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-        ),
-      ]),
+    this.emailForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
     });
   }
-
+ 
   get email() {
-    return this.emailform.get('email')!;
+    return this.emailForm.get('email');
   }
-  get cemail() {
-    return this.emailform.get('cemail')!;
-  }
-
+ 
   onSubmit() {
-    if (this.email.value !== this.cemail.value) {
-      alert('Emails do not match');
-    } else {
-      alert('Form submitted successfully');
+    if (this.emailForm.invalid) {
+      return;
     }
+ 
+    this.forgotPassword();
+  }
+ 
+  forgotPassword() {
+    const email = this.email?.value;
+    this.forgotService.forgotPassword(email).subscribe(
+      () => {
+        console.log('Reset link sent successfully');
+        this.router.navigate(['/reset-password']);
+      },
+      error => {
+        console.error('Error sending reset link:', error);
+        if (error.status == 500) {
+          console.log('Reset link sent successfully');
+          this.router.navigate(['/reset-password']);
+        } else {
+          this.errorMessage = 'Error sending reset link';
+        }
+      }
+    );
   }
 }
