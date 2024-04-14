@@ -1,5 +1,5 @@
 .container {
-  height: 160vh; 
+  height: 160vh;
   background-image: url('https://www.bhmpics.com/downloads/fast-food-images/63.fast-food-gericht-auf-blau_155003-27518.jpg');
   background-size: cover;
   margin-top: 7%;
@@ -7,9 +7,9 @@
 }
 
 .user-profile {
-  padding-top: 100px; 
-  padding-bottom: 180px; 
-  min-height: 70vh; 
+  padding-top: 100px;
+  padding-bottom: 180px;
+  min-height: 70vh;
 }
 
 .form-group {
@@ -24,23 +24,28 @@ label {
 
 .button-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .btn + .btn {
-  margin-left: 10px; 
- 
+  margin-left: 10px;
 }
 
 .row .col-md-6 {
   margin-bottom: 20px;
 }
 
-.form-group.row{
-  margin-bottom: -10px; 
+.form-group.row {
+  margin-bottom: -10px;
 }
+
 .user-profile h2 {
   text-align: center;
-  font-size: 35px; 
-  // font-style: italic; 
+  font-size: 35px;
+}
+
+input.form-control {
+  width: 100%;
+  height: 38px;
 }

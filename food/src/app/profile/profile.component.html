@@ -1,11 +1,11 @@
   <li class="nav-item" *ngIf="!isLoggedIn">
-  <a class="nav-link"  (click)="onLogin()">Login</a>
+  <a class="nav-link" class="bi bi-person-circle" (click)="onLogin()">Login</a>
 </li>
 
 <li class="nav-item dropdown" *ngIf="isLoggedIn">
   <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="material-symbols-outlined"><span class="bi bi-person-circle" style="font-size:1.2rem"></span>&nbsp;</span>
-    {{displayName}}
+    <!-- {{displayName}} -->
   </a>
   
   <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">

@@ -1,9 +1,12 @@
 export interface Item {
     itemId: number;
     itemName: string;
-    categoryId:number;
+    category: {
+      categoryId: number;
+      categoryName: string;
+    };
     description: string;
     cost: number;
-    imageUrl: string;
+    itemimageUrl: string;
   }
  

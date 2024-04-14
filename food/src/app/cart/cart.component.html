@@ -1,50 +1,43 @@
-<!-- <body>
-  <div class="scrollable-section">
+
+
 <div class="container">
-  <h2 style="color:black">My Cart</h2>
+  <h2>Delicious Delights Cart</h2>
   <table class="cart-table">
     <thead>
       <tr>
-        <th style="text-align: center;">Item_ID</th>
-        <th style="text-align: center;">Name</th>
-        <th style="text-align: center;">Price</th>
-        <th style="text-align: center;">Quantity</th>
-        <th style="text-align: center;">Total</th>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <!-- <th>Total</th> -->
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of cartItems" style="text-align: center;">
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-       
-        <td>{{ item.price | currency: 'INR' }}</td>
-        <td>
-    
-          <span class="bi bi-file-minus" (click)="decreaseItemQuantity(item)" style="font-size:1.5rem;color: green;" *ngIf="item.quantity > 1"></span>
+      <tr *ngFor="let item of cart?.itemsInCart">
+        <td>{{ item.itemName }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.cost }}</td>
+          <td class="action-column">
+          <span class="action-button minus" (click)="increaseOrReduceQuantityOfItem(item.itemId, -1)">-</span>
           {{ item.quantity }}
-          <span class="bi bi-plus" (click)="increaseItemQuantity(item)" style="font-size:1.5rem;color: green; "></span>
-        </td>
-        <td>{{ (item.price * item.quantity) | currency: 'INR' }}</td>
-        <td>
-          <div class="trash-button">
-              <span class="bi bi-trash" (click)="removeItemFromCart(item)" style="font-size:1.5rem;color: red; "></span>
-          </div>
-        </td>
+          <span class="action-button" (click)="increaseOrReduceQuantityOfItem(item.itemId, 1)">+</span>
+          <span  class="bi bi-trash"  (click)="removeItemFromCart(item.cartItemId)" style="color: red;"></span>
+          </td>
       </tr>
     </tbody>
     <tfoot>
-      <br>
       <tr>
-        <td colspan="4" style="text-align: center; font-weight: bold;color:black">Total:</td>
-        <td style="text-align: center;color:rgb(18, 17, 17); font-weight: bold;">{{ getTotalPrice() | currency: 'INR' }}</td>
-        <td></td>
+        <td colspan="2" style="text-align: right; font-size: large; margin-left: 10px; background-color: #e7720c;
+        color: white; ">Total:</td>
+        <td colspan="3" style= " background-color: #e7720c;
+        color: white;" >{{ cart?.totalCost }}</td>
       </tr>
     </tfoot>
   </table>
   <div class="cart-buttons">
     <button routerLink="/dashboard">Add More</button>
-    <button routerLink="/order-form" *ngIf="cartItems.length > 0">Checkout</button>
+    <!-- <button routerLink="/order">Place Order</button> -->
+    <button routerLink="/order-form">Checkout</button>
   </div>
 </div>
-</div>
-</body> -->
+<app-header></app-header>

@@ -77,3 +77,12 @@ a{
 .rightbar ul li:last-child {
     margin-left: 9px; 
 }
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+  
+  .dropdown-item {
+    cursor: pointer;
+  }
+

@@ -15,6 +15,7 @@ export class Register {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent{
+  isLoginPage: boolean;
   loginform!: FormGroup;
   user: Register;
   loading = false;
@@ -60,8 +61,8 @@ export class LoginComponent{
     this.loginservice.loginUser(this.user).subscribe({
       next: (data) =>{
         const user = data; 
-        sessionStorage.setItem('userid', JSON.stringify(user)); 
-        sessionStorage.setItem('addressId', JSON.stringify(user.address));
+        sessionStorage.setItem('userId', JSON.stringify(user)); 
+        // sessionStorage.setItem('addressId', JSON.stringify(user.address));
         this.isLoggedIn = true
         console.log(this.isLoggedIn)
         Swal.fire({
@@ -70,6 +71,7 @@ export class LoginComponent{
           text: 'Login successful!'
         }).then
         this.router.navigate(['/dashboard'],{ queryParams: { isLoggedIn: 'true' } })
+        
       },
       error: (e) => {
         console.log(e);

@@ -28,38 +28,32 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="address" class="form-label">Address :</label>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="building Name" class="form-label">Building Name</label>
-              <input type="text" id="buildingName" name="buildingName" placeholder="Building Name" formControlName="buildingName" class="form-control form-control-sm" />
-            </div>
-            <div class="col-md-6">
-              <label for="street" class="form-label">Street</label>
-              <input type="text" id="streetName" name="streetName" placeholder="Street Name" formControlName="streetName" class="form-control form-control-sm" />
-            </div>
-            <div class="col-md-6">
-              <label for="area" class="form-label">Area</label>
-              <input type="text" id="area" name="area" placeholder="Area" formControlName="area" class="form-control form-control-sm" />
-            </div>
-            <div class="col-md-6">
-              <label for="city" class="form-label">City</label>
-              <input type="text" id="city" name="city" placeholder="City" formControlName="city" class="form-control form-control-sm" />
-            </div>
-            <div class="col-md-6">
-              <label for="state" class="form-label">State</label>
-              <input type="text" id="state" name="state" placeholder="State" formControlName="state" class="form-control form-control-sm" />
-            </div>
-            <div class="col-md-6">
-              <label for="country" class="form-label">Country</label>
-              <input type="text" id="country" name="country" placeholder="Country" formControlName="country" class="form-control form-control-sm" />
-            </div>
-            <div class="col-md-6">
-              <label for="pinCode" class="form-label">Pincode</label>
-              <input type="text" id="pinCode" name="pinCode" placeholder="Pin Code" formControlName="pinCode" class="form-control form-control-sm" />
-            </div>
+    
+        <div class="row">
+          <div class="col-md-6">
+            <label for="addressLine" class="form-label">Address Line</label>
+            <input type="text" id="addressLine" name="addressLine" placeholder="addressLine" formControlName="addressLine" class="form-control form-control-sm address-input" />
           </div>
+          <div class="col-md-6">
+          <label for="city" class="city">City</label>
+          <input type="text" id="city" name="city" placeholder="City" formControlName="city" class="form-control form-control-sm address-input" />
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <label for="state" class="state">State</label>
+          <input type="text" id="state" name="state" placeholder="State" formControlName="state" class="form-control form-control-sm address-input" />
+        </div>
+        <div class="col-md-6">
+          <label for="country" class="country">Country</label>
+          <input type="text" id="country" name="country" placeholder="Country" formControlName="country" class="form-control form-control-sm address-input" />
+        </div>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="pincode" class="pincode">Pincode</label>
+          <input type="text" id="pinCode" name="pinCode" placeholder="Pin Code" formControlName="pinCode" class="form-control form-control-sm address-input" />
         </div>
 
         <div class="button-container">
@@ -70,3 +64,4 @@
     </div>
   </div>
 </div>
+<app-header></app-header>

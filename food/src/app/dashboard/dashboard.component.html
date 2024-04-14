@@ -9,7 +9,7 @@
         </div>
     </div>
     <br>
-    <p id="restaurant">Top Restaurants</p>
+    <p id="restaurant">Restaurants</p>
     <div class="section" id="restaurant-section">
         <div *ngFor="let restaurant of allRestaurants" class="box2" [id]="'restaurant' + restaurant.restaurantId" style="text-align: center;">
             <a [routerLink]="['/restaurant-menu', restaurant.restaurantId]"> 
@@ -22,3 +22,4 @@
         </div>
     </div>
 </div>
+<app-header></app-header>

@@ -17,14 +17,8 @@ export class register {
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   displayName: string = '';
-  isAdmin: boolean = false;
-  showSearch: boolean = false;
-  searchResults: any[] = [];
-  restaurants: any[];
-  selectedRestaurant: any;
-  searchName: string;
-  searchId: number;
-  query: string = '';
+isLoginPage: any;
+
   constructor( private router: Router, public userService:UserService,private searchService: SearchService,
     private loginservice: LoginService) {
      }
@@ -48,71 +42,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['user-profile']);
   
   }
-  // onMyCart() {
-  //   this.router.navigate(['cart']);
-  // }
+ 
   onMyOrders() {
     this.router.navigate(['my-orders']);
   }
 
-  toggleSearch(): void {
-    this.showSearch = !this.showSearch;
-    if (!this.showSearch) {
-      this.searchResults = [];
-      this.query = '';
-    }
-  }
 
-  search(): void {
-    if (this.query.trim() === '') {
-      this.searchResults = []; 
-      return;
-    }
-  }
-  //   // Perform search
-  //   this.searchService.searchRestaurants(this.query).subscribe(
-  //     (results) => {
-  //       this.searchResults = results;
-  //     },
-  //     (error) => {
-  //       console.error('Error occurred while searching:', error);
-  //     }
-  //   );
-  // }
-  // toggleSearch(): void {
-  //   this.showSearch = !this.showSearch;
-  //   if (!this.showSearch) {
-  //     this.searchResults = [];
-  //     this.query = '';
-  //   }
-  // }
-
-  // search(): void {
-  //   if (this.query.trim() === '') {
-  //     this.searchResults = []; 
-  //     return;
-  //   }
-
-  //   // Perform search
-  //   this.searchService.searchRestaurants(this.query).subscribe(
-  //     (results) => {
-  //       this.searchResults = results;
-  //     },
-  //     (error) => {
-  //       console.error('Error occurred while searching:', error);
-  //     }
-  //   );
-  // }
-
-  // searchByName(name: string): void {
-  //   this.searchService.searchByName(name).subscribe(restaurants => {
-  //     this.restaurants = restaurants;
-  //   });
-  // }
- 
-  // getById(id: number): void {
-  //   this.searchService.getById(id).subscribe(restaurant => {
-  //     this.selectedRestaurant = restaurant;
-  //   });
-  // }
 }

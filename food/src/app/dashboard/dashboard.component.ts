@@ -17,12 +17,12 @@ export class DashboardComponent implements OnInit {
   topRestaurants: any[] = [];
   itemsByCategory: any[] = [];
   itemsByRestaurant: any[] = [];
-  allRestaurants: Restaurant[] = []; // Add a property to store all restaurants
+  allRestaurants: Restaurant[] = []; 
 
   constructor(public router: Router, private searchservice: SearchService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAllRestaurants(); // Call the method to get all restaurants
+    this.getAllRestaurants();
     this.route.params.subscribe(params => {
       this.categoryId = params['categoryId'];
       this.viewAllCategory();
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     this.searchservice.getAllRestaurants().subscribe(
       (data: Restaurant[]) => {
         this.allRestaurants = data;
-        this.storeRestaurantIdsInSessionStorage();
+        // this.storeRestaurantIdsInSessionStorage();
       },
       (error) => {
         console.error('Error fetching all restaurants:', error);
@@ -53,10 +53,10 @@ export class DashboardComponent implements OnInit {
     );
   }
   
-  storeRestaurantIdsInSessionStorage(): void {
-    const restaurantIds: number[] = this.allRestaurants.map(restaurant => restaurant.restaurantId);
-    sessionStorage.setItem('restaurantIds', JSON.stringify(restaurantIds));
-  }
+  // storeRestaurantIdsInSessionStorage(): void {
+  //   const restaurantIds: number[] = this.allRestaurants.map(restaurant => restaurant.restaurantId);
+  //   sessionStorage.setItem('restaurantIds', JSON.stringify(restaurantIds));
+  // }
 
   
 }

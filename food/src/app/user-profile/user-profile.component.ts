@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class UserProfileComponent implements OnInit {
   userProfileForm: FormGroup;
-  userid: number;
+  userId: number;
   user: any = {};
   successMessage: string = '';
   errorMessage: string = '';
@@ -26,8 +26,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.userid = JSON.parse(sessionStorage.getItem('userid')).userid; 
-    this.addressId = JSON.parse(sessionStorage.getItem('addressId'));
+    this.userId = JSON.parse(sessionStorage.getItem('userId')).userId; 
     this.getUserDetails();
   }
 
@@ -37,9 +36,7 @@ export class UserProfileComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', Validators.email],
       phoneNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
-      buildingName: [''],
-      streetName: [''],
-      area: [''],
+      addressLine:[''],
       city: [''],
       state: [''],
       country: [''],
@@ -48,7 +45,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserDetails(): void {
-    this.userService.getUserById(this.userid).subscribe({
+    this.userService.getUserById(this.userId).subscribe({
       next: (data: any) => {
         this.user = data;
         this.userProfileForm.patchValue({
@@ -56,13 +53,11 @@ export class UserProfileComponent implements OnInit {
           lastName: this.user.lastName,
           email: this.user.email,
           phoneNumber: this.user.phoneNumber,
-          buildingName: this.user.address.buildingName,
-          streetName: this.user.address.streetName,
-          area: this.user.address.area,
-          city: this.user.address.city,
-          state: this.user.address.state,
-          country: this.user.address.country,
-          pinCode: this.user.address.pinCode
+          addressLine:this.user.addressLine,
+          city: this.user.city,
+          state: this.user.state,
+          country: this.user.country,
+          pinCode: this.user.pinCode
         });
       },
       error: (error: any) => {
@@ -74,7 +69,7 @@ export class UserProfileComponent implements OnInit {
 
   updateUser(): void {
     const userData = this.userProfileForm.value;
-    this.userService.updateUser(this.userid, userData).subscribe({
+    this.userService.updateUser(this.userId, userData).subscribe({
       next: (data: any) => {
         console.log('User updated successfully:', data);
         Swal.fire({
@@ -94,17 +89,6 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  updateAddress(): void {
-    const addressData = this.userProfileForm.value;
-    this.userService.updateAddress(this.addressId, addressData).subscribe({
-      next: () => {
-        Swal.fire('Success', 'Address updated successfully', 'success');
-      },
-      error: () => {
-        Swal.fire('Error', 'Failed to update address', 'error');
-      }
-    });
-  }
 
 
   onCancel(): void {

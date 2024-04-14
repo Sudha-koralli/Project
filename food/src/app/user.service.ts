@@ -9,23 +9,17 @@ import { User } from './user-profile/user.model';
 export class UserService {
   private getUserUrl = 'http://localhost:8080/fooddelivery/user';
   private updateUserUrl = 'http://localhost:8080/fooddelivery/user/updateProfile';
-  private updateAddressUrl = 'http://localhost:8087/fooddelivery/address';
+
 
   constructor(private http: HttpClient) {}
 
-  updateUser(id: number, userData: any): Observable<User> {
-    return this.http.put<User>(`${this.updateUserUrl}/${id}`, userData);
+  updateUser(userId: number, userData: any): Observable<User> {
+    return this.http.put<User>(`${this.updateUserUrl}/${userId}`, userData);
   }
 
-  updateAddress(addressId: number, addressData: any): Observable<any> {
-    return this.http.put<any>(`${this.updateAddressUrl}/${addressId}`, addressData);
+  getUserById(userId: number): Observable<User> {
+    return this.http.get<User>(`${this.getUserUrl}/${userId}`);
   }
 
-  getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.getUserUrl}/${id}`);
-  }
 
-  getAddressById(addressId: number): Observable<User> {
-    return this.http.get<User>(`${this.getUserUrl}/${addressId}`);
-  }
 }

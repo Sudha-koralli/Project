@@ -18,7 +18,6 @@ import { OfferComponent } from './offer/offer.component';
 import { SupportComponent } from './support/support.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ForgotComponent } from './forgot/forgot.component';
-import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './orders/order-success/order-success.component';
@@ -30,6 +29,16 @@ import { AboutComponent } from './about/about.component';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { MerchantRegComponent } from './merchant-reg/merchant-reg.component';
+import { MerchantLoginComponent } from './merchant-login/merchant-login.component';
+import { MerchantDashboardComponent } from './merchant-dashboard/merchant-dashboard.component';
+import { MerchantRestaurantInfoComponent } from './merchant-restaurant-info/merchant-restaurant-info.component';
+import { AddItemsComponent } from './add-items/add-items.component';
+import { ViewRestaurantComponent } from './view-restaurant/view-restaurant.component';
+import { ViewRestaurantItemsComponent } from './view-restaurant-items/view-restaurant-items.component';
+import { CartComponent } from './cart/cart.component';
+import { UpdateRestaurantItemsComponent } from './update-restaurant-items/update-restaurant-items.component';
+import { MerchantHeaderComponent } from './merchant-header/merchant-header.component';
+import { UpdateRestaurantComponent } from './update-restaurant/update-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +65,16 @@ import { MerchantRegComponent } from './merchant-reg/merchant-reg.component';
     RestaurantMenuComponent,
     CategoryMenuComponent,
     MerchantRegComponent,
+    MerchantLoginComponent,
+    MerchantDashboardComponent,
+    MerchantRestaurantInfoComponent,
+    AddItemsComponent,
+    ViewRestaurantComponent,
+    ViewRestaurantItemsComponent,
+    CartComponent,
+    UpdateRestaurantItemsComponent,
+    MerchantHeaderComponent,
+    UpdateRestaurantComponent
   
   ],
   imports: [

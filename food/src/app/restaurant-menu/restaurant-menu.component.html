@@ -12,7 +12,7 @@
         <ul class="menu-list">
           <li class="menu-item" *ngFor="let item of itemsByRestaurant">
             <div class="item-details">
-              <img [src]="item.itemImageUrl" alt="{{ item.itemName }}" class="item-image">
+              <img [src]="item.itemimageUrl" alt="{{ item.itemName }}" class="item-image">
               <div>
                 <h4>{{ item.itemName }}</h4>
                 <p>{{ item.description }}</p>
@@ -21,7 +21,7 @@
             <div class="item-price">
               <p>Cost: ₹{{ item.cost }}</p>
             </div>
-            <button class="add-to-cart-button" (click)="addItemToCart(item)">Add</button>
+            <button class="add-to-cart-button" (click)="addToCart(item.itemId,item.restaurantId)">Add</button>
           </li>
         </ul>
       </div>
@@ -31,3 +31,4 @@
     </div>
   </div>
 </div>
+<app-header></app-header>

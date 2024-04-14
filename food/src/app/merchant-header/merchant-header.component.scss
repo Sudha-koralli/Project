@@ -1,0 +1,59 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa; /* Set your desired background color */
+  }
+  
+  .leftbar img {
+    width: 40px; /* Adjust the width of the logo as needed */
+    height: auto;
+    margin-right: 10px; /* Add margin to separate the logo from text */
+  }
+  
+  .leftbar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333; /* Set your desired text color */
+    font-weight: bold; /* Optionally adjust the font weight */
+  }
+  
+  .rightbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .rightbar ul li {
+    display: inline-block;
+    margin-left: 20px; /* Add margin to separate each list item */
+  }
+  
+  .rightbar ul li a {
+    text-decoration: none;
+    color: #333; /* Set your desired text color */
+  }
+  
+  .rightbar ul li a:hover {
+    color: #007bff; /* Change text color on hover */
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529; /* Set your desired text color */
+    text-align: left;
+    background-color: #fff; /* Set your desired background color */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+  }
+  

@@ -21,7 +21,7 @@
               <div class="item-price">
                 <p>Cost: ₹{{ item.cost }}</p>
               </div>
-              <button class="add-to-cart-button" (click)="addItemToCart(item)">Add</button>
+              <button class="add-to-cart-button" (click)="addToCart(item.itemId,item.restaurantId)">Add</button>
             </li>
           </ul>
         </div>
@@ -31,4 +31,4 @@
       </div>
     </div>
   </div>
-  
+  <app-header></app-header>

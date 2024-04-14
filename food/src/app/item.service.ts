@@ -17,4 +17,10 @@ export class ItemService {
   viewItemByCategory(categoryId: number): Observable<Item[]> {
     return this.http.get<Item[]>(`${this.baseUrl}/itembycategory/${categoryId}`);
   }
+  addItemToRestaurant(item: Item, restaurantId: number): Observable<Item> {
+    return this.http.post<Item>(`${this.baseUrl}/add/${restaurantId}`, item);
+  }
+  removeItem(itemId: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.baseUrl}/${itemId}`);
+  }
 }

@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   }
   onLogin(): void {
     this.router.navigate(['/login']);
+    
   }
   onLogout() {
     this.isLoggedIn = false;
