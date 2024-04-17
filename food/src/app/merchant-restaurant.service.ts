@@ -10,6 +10,7 @@ import { MerchantRestaurant } from './merchant-restaurant-info/merchant-restaura
 })
 export class MerchantRestaurantService {
   private apiUrl = 'http://localhost:8082/fooddelivery/restaurant';
+  private apiUrl1 = 'http://localhost:8082/fooddelivery';
 
   constructor(private http: HttpClient) {}
   getRestaurantByMerchantId(merchantId: any): Observable<any> {
@@ -30,8 +31,9 @@ export class MerchantRestaurantService {
   updateRestaurant(restaurantData: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/update`, restaurantData);
   }
-  updateRestaurantItems(restaurantId: string, itemData: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${restaurantId}/items`, itemData);
+ 
+  updateRestaurantItems(itemData: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl1}/items/update`, itemData);
   }
   viewRestaurant(restaurantId: number): Observable<Restaurant> {
     return this.http.get<Restaurant>(`${this.apiUrl}/${restaurantId}`);

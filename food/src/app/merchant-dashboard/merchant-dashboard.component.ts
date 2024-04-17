@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MerchantDashboardComponent implements OnInit {
   isRestaurantDataPresent: boolean = false;
+imageUrls: any;
 
   constructor(private merchantRestaurantService: MerchantRestaurantService, private router: Router) { }
 

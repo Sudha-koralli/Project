@@ -80,7 +80,7 @@ export class RegisterComponent{
       ]),
       country: new FormControl(this.user.country, [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(4),
         Validators.pattern(/^[a-zA-Z\s]*$/),
       ]),
       pinCode: new FormControl(this.user.pinCode, [
@@ -128,43 +128,30 @@ export class RegisterComponent{
     return this.registrationform.get('pinCode');
   }
  
- 
- 
   registerUser() {
-    this.user = this.registrationform.value
+    this.user = this.registrationform.value;
     this.registerService.registerUser(this.user).subscribe({
-      next: (data) =>{
+      next: (data) => {
         Swal.fire({
           icon: 'success',
           title: 'Success',
           text: 'Registration successful!'
-        }).then
-        this.router.navigate(['/login']);
+        }).then(() => {
+          this.router.navigate(['/login']);
+        });
       },
       error: (e) => {
         console.log(e);
-        if (e.status === 200 || e.status === 201) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: 'Registration successful!'
-          }).then
-         
-          this.router.navigate(['/login']);
-         
-}
-    else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops',
-            text: 'Email Id already exists!'
-          }).then
-          console.log("logged fail");
-        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops',
+          text: 'Registration failed! Please try again.'
+        }).then(() => {
+          console.log("Registration failed");
+        });
       }
-  });
+    });
   }
-  // login(){
-  //   this.router.navigate(['/login'])
-  // }
+  
+ 
 }

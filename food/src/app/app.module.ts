@@ -39,6 +39,9 @@ import { CartComponent } from './cart/cart.component';
 import { UpdateRestaurantItemsComponent } from './update-restaurant-items/update-restaurant-items.component';
 import { MerchantHeaderComponent } from './merchant-header/merchant-header.component';
 import { UpdateRestaurantComponent } from './update-restaurant/update-restaurant.component';
+import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
+import { MerchantProfileComponent } from './merchant-profile/merchant-profile.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { UpdateRestaurantComponent } from './update-restaurant/update-restaurant
     CartComponent,
     UpdateRestaurantItemsComponent,
     MerchantHeaderComponent,
-    UpdateRestaurantComponent
+    UpdateRestaurantComponent,
+    PaymentgatewayComponent,
+    MerchantProfileComponent,
+    ViewOrdersComponent
   
   ],
   imports: [

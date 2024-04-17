@@ -62,16 +62,15 @@ export class LoginComponent{
       next: (data) =>{
         const user = data; 
         sessionStorage.setItem('userId', JSON.stringify(user)); 
-        // sessionStorage.setItem('addressId', JSON.stringify(user.address));
         this.isLoggedIn = true
         console.log(this.isLoggedIn)
         Swal.fire({
           icon: 'success',
           title: 'Success',
           text: 'Login successful!'
-        }).then
-        this.router.navigate(['/dashboard'],{ queryParams: { isLoggedIn: 'true' } })
-        
+        }).then(() => {
+        this.router.navigate(['/dashboard'] );
+        })
       },
       error: (e) => {
         console.log(e);
@@ -83,7 +82,7 @@ export class LoginComponent{
             title: 'Success',
             text: 'Login successful!'
           }).then
-          this.router.navigate(['/dashboard'],{ queryParams: { isLoggedIn: 'true' } })
+          this.router.navigate(['/dashboard'])
         } else {
           Swal.fire({
             icon: 'error',
@@ -94,7 +93,6 @@ export class LoginComponent{
       }
   });
   }
-  
   
   forgotPassword() {
     this.router.navigate(['/forgot'])

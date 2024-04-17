@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MerchantLoginService } from '../merchant-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-merchant-header',
@@ -6,22 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./merchant-header.component.scss']
 })
 export class MerchantHeaderComponent implements OnInit {
-
   isLoggedIn: boolean = false;
+  displayName: string = '';
+ isLoginPage: any;
 
-  constructor() { }
+  constructor( private router: Router, 
+    private merchantloginService: MerchantLoginService) {
+     }
 
-  ngOnInit(): void {
-    // Check if the merchant is logged in (you can implement this logic)
-    this.isLoggedIn = true; // Example logic
+  ngOnInit(): void 
+  {
+   }
+
+   loginMerchant(){
+        this.router.navigate(['/merchant-login']).then((next)=>{
+          this.isLoggedIn = true        })
+     }
+    
+  onLogOut() {
+    this.merchantloginService.logout();
+    this.router.navigate(['/merchant-login']);
   }
-
-  onLogout() {
-    // Implement logout logic
-    this.isLoggedIn = false;
-  }
-
-  visitProfile() {
-    // Implement logic to navigate to merchant profile
-  }
+  
+  // visitProfile() {
+  //   let _name: string;
+  //   this.router.navigate(['user-profile']);
+  
+  // }
+ 
+  // onMyOrders() {
+  //   this.router.navigate(['my-orders']);
+  // }
 }

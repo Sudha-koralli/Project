@@ -23,4 +23,7 @@ export class ItemService {
   removeItem(itemId: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.baseUrl}/${itemId}`);
   }
+  getItemById(itemId: number): Observable<Item> {
+    return this.http.get<Item>(`${this.baseUrl}/${itemId}`);
+  }
 }

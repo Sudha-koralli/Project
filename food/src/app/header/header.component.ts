@@ -17,7 +17,7 @@ export class register {
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   displayName: string = '';
-isLoginPage: any;
+ isLoginPage: any;
 
   constructor( private router: Router, public userService:UserService,private searchService: SearchService,
     private loginservice: LoginService) {

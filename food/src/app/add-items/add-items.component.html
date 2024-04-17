@@ -33,5 +33,8 @@
             <div *ngIf="itemForm.get('cost').invalid && itemForm.get('cost').touched" class="text-danger">Cost is required.</div>
         </div>
         <button type="submit" [disabled]="itemForm.invalid" class="btn btn-custom">Add Item</button>
+        <a href="/merchant-dashboard" style="color: rgb(62, 184, 62);">Back &rarr; Merchant-Dashboard</a>
     </form>
 </div>
+<app-merchant-header></app-merchant-header>
+

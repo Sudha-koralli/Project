@@ -1,40 +1,19 @@
-<div class="navbar">
-    <div class="leftbar">
-      <ul>
-        <li>
-          <a href="#">
-            <img src="logo.png" alt="Merchant Logo" />
-            MERCHANT PORTAL
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="rightbar">
-      <ul>
-        <li>
-          <a routerLink="/support">
-            <i class="bi bi-question-circle"></i> Help
-          </a>
-        </li>
-        <li>
-          <app-profile></app-profile>
-        </li>
-        <li>
-          <a class="bi bi-cart" routerLink="/cart">&nbsp;Cart</a>
-        </li>
-        <li *ngIf="!isLoggedIn">
-          <a routerLink="/merchant-login">Merchant Login</a>
-        </li>
-        <li *ngIf="isLoggedIn" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="material-symbols-outlined"><span class="bi bi-person-circle" style="font-size:1.2rem"></span>&nbsp;</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="visitProfile()">Profile</a>
-            <a class="dropdown-item" (click)="onLogout()">Logout</a>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="navbar" style="background-color: #f3f2f7;">
+  <div class="leftbar">
+    <ul>
+      <li>
+        <a href="#">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOVHDyOq-G2nM1sQVk5ICoR84Fsmd_MTzwAF1rhEg7lEdovP8Wryzw8apfmH0oH3M5EAI&usqp=CAU" alt="" />
+          FOOD FUN
+        </a>
+      </li>
+    </ul>
   </div>
-  
+  <div class="rightbar">
+    <ul>
+      <li>
+        <app-merchant-profile></app-merchant-profile>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -11,12 +11,16 @@ export class ProfileComponent implements OnInit {
   displayName: string = '';
   constructor(private router: Router,private route: ActivatedRoute) {}
   ngOnInit(): void {
-      this.route.queryParams.subscribe(params => {
-        if (params['isLoggedIn'] === 'true') {
-          this.isLoggedIn = true;
-        }
-    });
-  }
+var userData=JSON.parse(sessionStorage.getItem('userId'));
+
+if(userData){
+this.isLoggedIn=true
+
+}else{
+  this.isLoggedIn=false;
+}
+
+}
   onLogin(): void {
     this.router.navigate(['/login']);
     

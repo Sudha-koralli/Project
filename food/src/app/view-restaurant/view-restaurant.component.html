@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>Restaurant Image</th>
+        <th>Restaurant Name</th>
         <th>Manager Name</th>
         <th>Contact</th>
         <th>Address Line</th>
@@ -19,6 +20,7 @@
         <td>
           <img [src]="restaurant.restaurant_image_Url" class="item-image">
         </td>
+        <td>{{ restaurant.restaurantName }}</td>
         <td>{{ restaurant.managerName }}</td>
         <td>{{ restaurant.contact }}</td>
         <td>{{ restaurant.addressLine }}</td>
@@ -36,3 +38,5 @@
     </tbody>
   </table>
 </div>
+<a href="/merchant-dashboard" >Back &rarr; Merchant-Dashboard</a>
+ <app-merchant-header></app-merchant-header>

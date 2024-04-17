@@ -10,18 +10,18 @@ export class MyOrdersComponent {
 
   constructor(private orderService: OrderDetailsService) {}
 
-  ngOnInit() {
-    this.loadOrders();
-  }
+  // ngOnInit() {
+  //   this.loadOrders();
+  // }
 
-  loadOrders() {
-    this.orderService.getOrders().subscribe(
-      (data: any[]) => {
-        this.orders = data;
-      },
-      error => {
-        console.log('Error fetching orders:', error);
-      }
-    );
-  }
+  // loadOrders() {
+  //   this.orderService.getOrders().subscribe(
+  //     (data: any[]) => {
+  //       this.orders = data;
+  //     },
+  //     error => {
+  //       console.log('Error fetching orders:', error);
+  //     }
+  //   );
+  // }
 }

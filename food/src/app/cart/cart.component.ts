@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+
 import { CartService } from './cart.service';
 import { FoodCart } from '../models/cart';
 import { faTrash, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { PaymentService } from '../Services/payment.service';
+declare var Razorpay: any;
 
 @Component({
   selector: 'app-cart',
@@ -9,14 +14,20 @@ import { faTrash, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,private router: Router,private paymentService: PaymentService,
+    private route: ActivatedRoute,) {}
 
-  cart: FoodCart; // Update the type to CartResponse
+  cart: FoodCart; 
   faTrash = faTrash;
   faPlus = faPlus;
   faMinus = faMinus;
+  form: any = {};
+  totalAmount: number;
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.totalAmount = params['totalAmount'];
+    });
     const userIdString = sessionStorage.getItem('userId');
     if (!userIdString) {
       console.error('User ID not found in session storage');
@@ -78,4 +89,5 @@ export class CartComponent {
         }
       );
     }
+    
   }

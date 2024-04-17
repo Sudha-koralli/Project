@@ -30,12 +30,15 @@ import { ViewRestaurantItemsComponent } from './view-restaurant-items/view-resta
 import { UpdateRestaurantItemsComponent } from './update-restaurant-items/update-restaurant-items.component';
 import { MerchantHeaderComponent } from './merchant-header/merchant-header.component';
 import { UpdateRestaurantComponent } from './update-restaurant/update-restaurant.component';
+import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 const routes: Routes = [
   {path:'add-items',component:AddItemsComponent},
   {path:'update-restaurant-items/:itemId',component:UpdateRestaurantItemsComponent},
   {path:'update-restaurant/:restaurantId',component:UpdateRestaurantComponent},
-  // {path:'cart',component:CartComponent},
+  {path:'paymentgateway',component:PaymentgatewayComponent},
+  {path:'view-orders',component:ViewOrdersComponent},
   {path:'view-restaurant',component:ViewRestaurantComponent},
   {path:'view-restaurant-items',component:ViewRestaurantItemsComponent},
   { path: 'about', component: AboutComponent },

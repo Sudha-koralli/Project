@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MerchantRestaurantService } from '../merchant-restaurant.service'; // Assuming you have a service for managing restaurant data
+import { MerchantRestaurantService } from '../merchant-restaurant.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -11,19 +11,27 @@ import Swal from 'sweetalert2';
 })
 export class UpdateRestaurantComponent implements OnInit {
   restaurantForm: FormGroup;
-  restaurantData: any; // This will hold the restaurant data retrieved from session storage
+  restaurantData: any;
 
   constructor(
     private fb: FormBuilder,
-    private merchantrestaurantService: MerchantRestaurantService,
+    private merchantRestaurantService: MerchantRestaurantService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
+    // Retrieve restaurant data from session storage
+    const storedRestaurantData = sessionStorage.getItem('restaurantData');
+    if (storedRestaurantData) {
+      this.restaurantData = JSON.parse(storedRestaurantData);
+      // Patch the form with the retrieved data
+      this.restaurantForm.patchValue(this.restaurantData);
+    }
   }
 
   initForm(): void {
+    // Initialize your form as before
     this.restaurantForm = this.fb.group({
       merchantId: [{ value: '', disabled: true }],
       restaurantId: [{ value: '', disabled: true }],
@@ -44,7 +52,7 @@ export class UpdateRestaurantComponent implements OnInit {
     updatedRestaurantData.restaurantId = this.restaurantData.restaurantId;
     updatedRestaurantData.merchantId = this.restaurantData.merchantId;
   
-    this.merchantrestaurantService.updateRestaurant(updatedRestaurantData).subscribe({
+    this.merchantRestaurantService.updateRestaurant(updatedRestaurantData).subscribe({
       next: (data: any) => {
         console.log('Restaurant updated successfully:', data);
         Swal.fire({
@@ -53,17 +61,21 @@ export class UpdateRestaurantComponent implements OnInit {
           text: 'Restaurant details have been updated successfully.'
         });
   
-        
-        this.merchantrestaurantService.getRestaurantByMerchantId(this.restaurantData.merchantId).subscribe({
+        // Fetch updated restaurant data and patch the form with it
+        this.merchantRestaurantService.getRestaurantByMerchantId(this.restaurantData.merchantId).subscribe({
           next: (updatedData: any) => {
             console.log('Updated restaurant data:', updatedData);
+            // Patch the form with the retrieved data
             this.restaurantForm.patchValue(updatedData);
-
+            // Update the local restaurantData object with the updated data
             this.restaurantData = updatedData;
+            // Update session storage with the updated data
+            sessionStorage.setItem('restaurantData', JSON.stringify(updatedData));
+            // Check if session storage is updated
+            console.log('Data stored in session storage:', sessionStorage.getItem('restaurantData'));
           },
           error: (error) => {
             console.error('Error fetching updated restaurant data:', error);
-          
           }
         });
       },
@@ -77,10 +89,10 @@ export class UpdateRestaurantComponent implements OnInit {
       }
     });
   }
-  
+
+
 
   onCancel(): void {
     this.router.navigate(['/merchant-dashboard']);
   }
-
 }
