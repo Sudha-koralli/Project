@@ -28,12 +28,12 @@ export class AddItemsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private itemService: ItemService, private router: Router) {
     this.itemForm = this.fb.group({
-      itemName: ['', Validators.required],
-      description: ['', Validators.required],
+      itemName: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
+      description: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
       itemimageUrl: ['', Validators.required],
-      categoryId: ['', Validators.required],
+      categoryId: ['', Validators.required,Validators.pattern(/^\d+$/),],
       // restaurantId: ['', Validators.required],
-      cost: ['', Validators.required]
+      cost: ['', Validators.required,Validators.pattern(/^\d+$/),]
     });
   }
 

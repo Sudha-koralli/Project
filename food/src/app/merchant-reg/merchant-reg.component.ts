@@ -34,10 +34,12 @@ export class MerchantRegComponent {
       firstName: new FormControl(this.merchant.firstName, [
         Validators.required,
         Validators.minLength(4),
+        Validators.pattern(/^[a-zA-Z]*$/),
       ]),
       lastName: new FormControl(this.merchant.lastName, [
         Validators.required,
         Validators.minLength(4),
+        Validators.pattern(/^[a-zA-Z]*$/),
       ]),
       phoneNumber: new FormControl(this.merchant.phoneNumber, [
         Validators.required,
@@ -48,6 +50,7 @@ export class MerchantRegComponent {
       password: new FormControl(this.merchant.password, [
         Validators.required,
         Validators.minLength(6),
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/),
       ]),
       email: new FormControl(this.merchant.email, [
         Validators.required,

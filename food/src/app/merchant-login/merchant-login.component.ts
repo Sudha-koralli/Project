@@ -95,7 +95,7 @@ export class MerchantLoginComponent {
   }
 
   forgotPassword() {
-    this.router.navigate(['/forgot']);
+    this.router.navigate(['/mer-forgot']);
   }
 
   merchantReg() {

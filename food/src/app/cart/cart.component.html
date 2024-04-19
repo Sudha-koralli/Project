@@ -38,7 +38,7 @@
   <div class="cart-buttons">
     <button routerLink="/dashboard">Add More</button>
     <!-- <button routerLink="/order">Place Order</button> -->
-    <button [routerLink]="['/paymentgateway']" [queryParams]="{ totalAmount: cart?.totalCost }">Checkout</button>
+    <button [routerLink]="['/address-info']" [queryParams]="{ totalAmount: cart?.totalCost }">Checkout</button>
 
   </div>
 </div>

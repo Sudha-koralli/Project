@@ -6,11 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ResetService {
 
-  private baseURL = "http://localhost:8080/api/v/set-password";
+  private userBaseURL = "http://localhost:8080/fooddelivery/user/set-password";
+  private merchantBaseURL = "http://localhost:8088/fooddelivery/merchant/set-password";
 
   constructor(private httpClient: HttpClient) { }
 
   setPassword(email: string, newPassword: string, confirmPassword: string) {
-    return this.httpClient.put(`${this.baseURL}`, { email, newPassword, confirmPassword });
+    return this.httpClient.put(`${this.userBaseURL}`, { email, newPassword, confirmPassword });
+  }
+
+  setMerchantPassword(email: string, newPassword: string, confirmPassword: string) {
+    return this.httpClient.put(`${this.merchantBaseURL}`, { email, newPassword, confirmPassword });
   }
 }

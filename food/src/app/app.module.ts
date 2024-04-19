@@ -21,7 +21,6 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { FooterComponent } from './footer/footer.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './orders/order-success/order-success.component';
-import { PaymentComponent } from './orders/payment/payment.component';
 import { HeaderComponent } from './header/header.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -42,13 +41,16 @@ import { UpdateRestaurantComponent } from './update-restaurant/update-restaurant
 import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
 import { MerchantProfileComponent } from './merchant-profile/merchant-profile.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
+import { CommonLoginDashboardComponent } from './common-login-dashboard/common-login-dashboard.component';
+import { AddressInfoComponent } from './address-info/address-info.component';
+import { MerForgotComponent } from './mer-forgot/mer-forgot.component';
+import { MerResetComponent } from './mer-reset/mer-reset.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyOrdersComponent,
     OrderSuccessComponent,
-    PaymentComponent,
     FooterComponent,
     CartComponent,
     LoginComponent,
@@ -80,7 +82,11 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
     UpdateRestaurantComponent,
     PaymentgatewayComponent,
     MerchantProfileComponent,
-    ViewOrdersComponent
+    ViewOrdersComponent,
+    CommonLoginDashboardComponent,
+    AddressInfoComponent,
+    MerForgotComponent,
+    MerResetComponent
   
   ],
   imports: [

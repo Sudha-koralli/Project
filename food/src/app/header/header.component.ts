@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
    }
 
      onLogin(){
-        this.router.navigate(['/login']).then((next)=>{
+        this.router.navigate(['/common-login-dashboard']).then((next)=>{
           this.isLoggedIn = true        })
      }
     

@@ -15,22 +15,22 @@ export class ViewRestaurantComponent implements OnInit {
   constructor(private restaurantService: MerchantRestaurantService, private router: Router) { }
 
   ngOnInit(): void {
-    const restaurantDataString = sessionStorage.getItem('restaurantData');
-    if (!restaurantDataString) {
-      console.error('restaurantData not found in session storage');
+    const merchantDataString = sessionStorage.getItem('merchantId');
+    if (!merchantDataString) {
+      console.error('merchantData not found in session storage');
       return;
     }
-
-    const restaurantData = JSON.parse(restaurantDataString);
-    const restaurantId = restaurantData.restaurantId;
-
-    if (!restaurantId) {
-      console.error('Invalid restaurantId:', restaurantId);
+  
+    const merchantData = JSON.parse(merchantDataString);
+    const merchantId = merchantData.merchantId;
+  
+    if (!merchantId) {
+      console.error('Invalid merchantId:', merchantId);
       return;
     }
-
-    // Fetch restaurant details by restaurantId
-    this.restaurantService.viewRestaurant(restaurantId).subscribe(
+  
+    // Fetch restaurant details by merchantId
+    this.restaurantService.viewRestaurantsByMerchantId(merchantId).subscribe(
       restaurant => {
         this.restaurant = restaurant;
       },
@@ -44,6 +44,7 @@ export class ViewRestaurantComponent implements OnInit {
       }
     );
   }
+  
 
   onUpdate(restaurantId: number): void {
     this.router.navigate(['/update-restaurant', restaurantId]);

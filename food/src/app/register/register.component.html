@@ -51,54 +51,6 @@
             <div *ngIf="phoneNumber.errors?.['pattern']">Invalid format.</div>
           </div>
         </div>
-        <div class="col-md-6">
-          <label class="form-label" for="addressLine">Address Line</label>
-          <input matInput type="text" id="addressLine" name="addressLine" formControlName="addressLine" placeholder="Address Line" required class="form-control form-control-sm" [class.is-invalid]="addressLine.invalid && (addressLine.dirty || addressLine.touched)" />
-          <div *ngIf="addressLine.invalid && (addressLine.dirty || addressLine.touched)" class="invalid-feedback">
-            <div *ngIf="addressLine.errors?.['required']">This field is required.</div>
-            <div *ngIf="addressLine.errors?.['minlength']">This field must have at least 6 characters.</div>
-          </div>
-        </div>
-        </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <label class="form-label" for="city">City</label>
-          <input matInput type="text" id="city" name="city" formControlName="city" placeholder="City" required class="form-control form-control-sm" [class.is-invalid]="city.invalid && (city.dirty || city.touched)" />
-          <div *ngIf="city.invalid && (city.dirty || city.touched)" class="invalid-feedback">
-            <div *ngIf="city.errors?.['required']">This field is required.</div>
-            <div *ngIf="city.errors?.['pattern']">This field must contain only alphabets.</div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label" for="state">State</label>
-          <input matInput type="text" id="state" name="state" formControlName="state" placeholder="State" required class="form-control form-control-sm" [class.is-invalid]="state.invalid && (state.dirty || state.touched)" />
-          <div *ngIf="state.invalid && (state.dirty || state.touched)" class="invalid-feedback">
-            <div *ngIf="state.errors?.['required']">This field is required.</div>
-            <div *ngIf="state.errors?.['pattern']">This field must contain only alphabets.</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <label class="form-label" for="country">Country</label>
-          <input matInput type="text" id="country" name="country" formControlName="country" placeholder="Country" required class="form-control form-control-sm" [class.is-invalid]="country.invalid && (country.dirty || country.touched)" />
-          <div *ngIf="country.invalid && (country.dirty || country.touched)" class="invalid-feedback">
-            <div *ngIf="country.errors?.['required']">This field is required.</div>
-            <div *ngIf="country.errors?.['minlength']">This field must have at least 6 characters.</div>
-            <div *ngIf="country.errors?.['pattern']">This field must contain only alphabets.</div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label" for="pinCode">Pin Code</label>
-          <input matInput type="text" id="pinCode" name="pinCode" formControlName="pinCode" placeholder="Pin Code" required class="form-control form-control-sm" [class.is-invalid]="pinCode.invalid && (pinCode.dirty || pinCode.touched)" />
-          <div *ngIf="pinCode.invalid && (pinCode.dirty || pinCode.touched)" class="invalid-feedback">
-            <div *ngIf="pinCode.errors?.['required']">This field is required.</div>
-            <div *ngIf="pinCode.errors?.['minlength']">This field must have at least 6 characters.</div>
-            <div *ngIf="pinCode.errors?.['pattern']">Invalid pin code format.</div>
-          </div>
-        </div>
       </div>
       
       <button [disabled]="registrationform.invalid" type="submit" class="btn btn-primary" style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>

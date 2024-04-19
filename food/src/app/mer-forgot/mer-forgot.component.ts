@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ForgotService } from '../forgot.service';
  
 @Component({
-  selector: 'app-forgot',
-  templateUrl: './forgot.component.html',
-  styleUrls: ['./forgot.component.scss']
+  selector: 'app-mer-forgot',
+  templateUrl: './mer-forgot.component.html',
+  styleUrls: ['./mer-forgot.component.scss']
 })
-export class ForgotComponent implements OnInit {
+export class MerForgotComponent implements OnInit {
+ 
   emailForm!: FormGroup;
   errorMessage: string = '';
  
@@ -36,18 +37,18 @@ export class ForgotComponent implements OnInit {
     this.forgotPassword();
   }
  
-forgotPassword() {
+  forgotPassword() {
     const email = this.email?.value;
-    this.forgotService.forgotPassword(email).subscribe(
+     this.forgotService.forgotMerchantPassword(email).subscribe(
       () => {
         console.log('Reset link sent successfully');
-        this.router.navigate(['/reset-password']);
+        this.router.navigate(['/mer-reset']);
       },
       error => {
         console.error('Error sending reset link:', error);
         if (error.status == 200) {
           console.log('Reset link sent successfully');
-          this.router.navigate(['/reset-password']);
+          this.router.navigate(['/mer-reset']);
         } else {
           this.errorMessage = 'Error sending reset link';
         }

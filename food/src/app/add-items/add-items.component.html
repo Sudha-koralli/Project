@@ -5,6 +5,7 @@
             <label for="itemName">Item Name</label>
             <input type="text" id="itemName" formControlName="itemName" class="form-control" required>
             <div *ngIf="itemForm.get('itemName').invalid && itemForm.get('itemName').touched" class="text-danger">Item Name is required.</div>
+            <div *ngIf="itemForm.errors?.['pattern']">This field must contain only alphabets.</div>
         </div>
         <div class="form-group">
             <label for="description">Description</label>

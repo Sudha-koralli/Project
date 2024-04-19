@@ -36,11 +36,7 @@ export class UserProfileComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', Validators.email],
       phoneNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
-      addressLine:[''],
-      city: [''],
-      state: [''],
-      country: [''],
-      pinCode: ['']
+   
     });
   }
 
@@ -53,11 +49,7 @@ export class UserProfileComponent implements OnInit {
           lastName: this.user.lastName,
           email: this.user.email,
           phoneNumber: this.user.phoneNumber,
-          addressLine:this.user.addressLine,
-          city: this.user.city,
-          state: this.user.state,
-          country: this.user.country,
-          pinCode: this.user.pinCode
+    
         });
       },
       error: (error: any) => {

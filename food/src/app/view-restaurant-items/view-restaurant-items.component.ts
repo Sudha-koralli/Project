@@ -16,7 +16,7 @@ export class ViewRestaurantItemsComponent  {
   constructor(private itemService: ItemService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const restaurantDataString = sessionStorage.getItem('restaurantData'); // Retrieve restaurantData from session storage
+    const restaurantDataString = sessionStorage.getItem('restaurantData'); 
     if (!restaurantDataString) {
       console.error('restaurantData not found in session storage');
       return; 
@@ -32,6 +32,7 @@ export class ViewRestaurantItemsComponent  {
     }
     this.itemService.viewItemByRestaurant(Number(restaurantData.restaurantId)).subscribe(
       items => {
+        // console.log('items for restaurant:', items);
         this.items = items;
       },
       error => {

@@ -2,24 +2,17 @@
   <div class="forgot-form-container">
     <h2>Forgot Password</h2>
     <form [formGroup]="emailForm" (ngSubmit)="onSubmit()" #form="ngForm">
-      <label for="email" class="form-label">Email Id:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        formControlName="email"
-        placeholder="Your Email Id"
-        required
-        minlength="1"
-        maxlength="250"
-        class="form-control form-control-sm"
-        [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
-      />
-      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
-        <div *ngIf="email.errors?.['required']">This field is required.</div>
-        <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="form-label" for="email">Email</label>
+          <input matInput type="email" id="email" name="email" formControlName="email" placeholder="Email-Id" required class="form-control form-control-sm" [class.is-invalid]="email.invalid && (email.dirty || email.touched)" />
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+            <div *ngIf="email.errors?.['required']">This field is required.</div>
+            <div *ngIf="email.errors?.['required']">Invalid email format.</div>
+          </div>
+        </div>
       </div>
-      <button type="button" class="btn btn-primary" style="margin-top: 2%;" (click)=" forgotPassword()" >
+      <button type="button" class="btn btn-primary" style="margin-top: 2%;" (click)="forgotPassword()">
         Send Link
       </button>
     </form>

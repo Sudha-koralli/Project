@@ -1,13 +1,10 @@
-export interface Item {
+export interface UpdateItems {
     itemId: number;
     itemName: string;
-    category: {
-      categoryId: number;
-      categoryName: string;
-    };
+    categoryId: number;
     description: string;
     cost: number;
     itemimageUrl: string;
-  
+    restaurantId:number;
   }
  

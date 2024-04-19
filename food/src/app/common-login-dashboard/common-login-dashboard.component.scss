@@ -1,0 +1,71 @@
+.container {
+    margin-top: 20px; /* Adjust the margin-top value as needed */
+    background-image: url('https://www.travoh.com/wp-content/uploads/2021/12/062-The-Ritz-Carlton-Pune-Hotel-Maharashtra-India-Ukiyo-Japanese-Reataurant-Deck.jpg');
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+    padding: 20px; /* Optional: Add padding to the container if needed */
+    height: 110vh;
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center the cards vertically */
+
+    .row {
+        .col-md-6 {
+            .card {
+                margin-left: 10px;
+                width: 300px; /* Increase the width of the cards */
+                height: 300px; /* Increase the height of the cards */
+                background-color: #f9f9f9; /* Card background color */
+                border-radius: 10px; /* Rounded corners for the card */
+                box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1); /* Box shadow for the card */
+                transition: transform 0.3s ease-in-out;
+                background-image: url('https://i.pinimg.com/736x/2a/ae/13/2aae13630b712aa08f5fc36853622c37.jpg'); /* Add background image URL here */
+              
+                &:hover {
+                    transform: translateY(-5px); /* Lift the card slightly on hover */
+                }
+
+                .card-body {
+                    position: relative;
+                    padding: 20px;
+
+                    .card-title {
+                        color: #333333; /* Title color */
+                        font-size: 1.3rem; /* Font size for the title */
+                        font-weight: bold; /* Bold font weight for the title */
+                        margin-bottom: 10px;
+                        margin-left: 50px;
+                    }
+
+                    .card-text {
+                        color: #24051b; /* Text color for the content */
+                        font-size: 1.1rem; /* Font size for the content */
+                        margin-bottom: 15px;
+                       
+                    
+                    }
+
+                    .profile-icon {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        font-size: 24px;
+                        color: #007bff; /* Icon color */
+                        transition: color 0.3s ease-in-out;
+
+                        &:hover {
+                            color: #0056b3; /* Icon color on hover */
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.container .card img {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    margin-left: 50px;
+    border-radius: 45%;
+}
+

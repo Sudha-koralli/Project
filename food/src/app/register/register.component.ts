@@ -10,12 +10,6 @@ export class reg {
   email: string;
   password: string;
   phoneNumber: string;
-  addressLine:string;
-  city:string;
-  state:string;
-  country:string;
-  pinCode:string;
- 
 }
 @Component({
   selector: 'app-register',
@@ -63,30 +57,6 @@ export class RegisterComponent{
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern(/^\d+$/),
-      ]),
-      addressLine: new FormControl(this.user.addressLine, [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      city: new FormControl(this.user.city, [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.pattern(/^[a-zA-Z\s]*$/),
-      ]),
-      state: new FormControl(this.user.state, [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.pattern(/^[a-zA-Z\s]*$/),
-      ]),
-      country: new FormControl(this.user.country, [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.pattern(/^[a-zA-Z\s]*$/),
-      ]),
-      pinCode: new FormControl(this.user.pinCode, [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.pattern(/^\d+$/),
       ])
     });
   }
@@ -108,25 +78,7 @@ export class RegisterComponent{
   get phoneNumber() {
     return this.registrationform.get('phoneNumber');
   }
-  get addressLine() {
-    return this.registrationform.get('addressLine');
-  }
  
-  get city() {
-    return this.registrationform.get('city');
-  }
- 
-  get state() {
-    return this.registrationform.get('state');
-  }
- 
-  get country() {
-    return this.registrationform.get('country');
-  }
- 
-  get pinCode() {
-    return this.registrationform.get('pinCode');
-  }
  
   registerUser() {
     this.user = this.registrationform.value;

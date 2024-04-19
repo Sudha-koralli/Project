@@ -3,7 +3,6 @@
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <h2 style="margin-bottom: 40px; color: aliceblue;">Your profile</h2>
       <form [formGroup]="userProfileForm" (ngSubmit)="updateUser()">
-        <div class="form-group row">
           <div class="col-md-6">
             <label for="firstName">First Name</label>
             <input type="text" id="firstName" class="form-control" formControlName="firstName">
@@ -14,9 +13,6 @@
             <input type="text" id="lastName" class="form-control" formControlName="lastName">
             <span class="error-text" *ngIf="userProfileForm.get('lastName').invalid && userProfileForm.get('lastName').touched">Name cannot be blank.</span>
           </div>
-        </div>
-
-        <div class="form-group row">
           <div class="col-md-6">
             <label for="email">Email</label>
             <input type="email" id="email" class="form-control" formControlName="email">
@@ -26,35 +22,7 @@
             <input type="tel" id="phoneNumber" class="form-control" formControlName="phoneNumber">
             <span class="error-text" *ngIf="userProfileForm.get('phoneNumber').invalid">Enter a 10 digit valid phone number.</span>
           </div>
-        </div>
-
-    
-        <div class="row">
-          <div class="col-md-6">
-            <label for="addressLine" class="form-label">Address Line</label>
-            <input type="text" id="addressLine" name="addressLine" placeholder="addressLine" formControlName="addressLine" class="form-control form-control-sm address-input" />
-          </div>
-          <div class="col-md-6">
-          <label for="city" class="city">City</label>
-          <input type="text" id="city" name="city" placeholder="City" formControlName="city" class="form-control form-control-sm address-input" />
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <label for="state" class="state">State</label>
-          <input type="text" id="state" name="state" placeholder="State" formControlName="state" class="form-control form-control-sm address-input" />
-        </div>
-        <div class="col-md-6">
-          <label for="country" class="country">Country</label>
-          <input type="text" id="country" name="country" placeholder="Country" formControlName="country" class="form-control form-control-sm address-input" />
-        </div>
-        </div>
-        
-        <div class="col-md-6">
-          <label for="pincode" class="pincode">Pincode</label>
-          <input type="text" id="pinCode" name="pinCode" placeholder="Pin Code" formControlName="pinCode" class="form-control form-control-sm address-input" />
-        </div>
+        <!-- </div> -->
 
         <div class="button-container">
           <button type="submit" [disabled]="userProfileForm.invalid" class="btn btn-md btn-success">Save Changes</button>

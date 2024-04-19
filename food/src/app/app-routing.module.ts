@@ -10,7 +10,6 @@ import { OfferComponent } from './offer/offer.component';
 import { SupportComponent } from './support/support.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './orders/order-success/order-success.component';
-import { PaymentComponent } from './orders/payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CartComponent } from './cart/cart.component';
@@ -32,9 +31,18 @@ import { MerchantHeaderComponent } from './merchant-header/merchant-header.compo
 import { UpdateRestaurantComponent } from './update-restaurant/update-restaurant.component';
 import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
+import { CommonLoginDashboardComponent } from './common-login-dashboard/common-login-dashboard.component';
+import { AddressInfoComponent } from './address-info/address-info.component';
+import { MerForgotComponent } from './mer-forgot/mer-forgot.component';
+import { MerResetComponent } from './mer-reset/mer-reset.component';
+
 
 const routes: Routes = [
   {path:'add-items',component:AddItemsComponent},
+  {path:'mer-forgot',component:MerForgotComponent},
+  {path:'mer-reset',component:MerResetComponent},
+  {path:'address-info',component:AddressInfoComponent},
+  {path:'common-login-dashboard',component:CommonLoginDashboardComponent},
   {path:'update-restaurant-items/:itemId',component:UpdateRestaurantItemsComponent},
   {path:'update-restaurant/:restaurantId',component:UpdateRestaurantComponent},
   {path:'paymentgateway',component:PaymentgatewayComponent},
@@ -61,7 +69,6 @@ const routes: Routes = [
   // { path:'offer',component:OfferComponent },
   { path: 'my-orders', component: MyOrdersComponent },
   { path: 'confirm',component:OrderSuccessComponent},
-  { path: 'checkout', component: PaymentComponent },
   { path: 'restaurant-menu/:restaurantId', component: RestaurantMenuComponent },
   {path:'category-menu/:categoryId',component:CategoryMenuComponent},
   { path: 'forgot-password', component: ForgotComponent },

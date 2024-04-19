@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ResetService } from '../reset.service';
-import Swal from 'sweetalert2';
  
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss']
+  selector: 'app-mer-reset',
+  templateUrl: './mer-reset.component.html',
+  styleUrls: ['./mer-reset.component.scss']
 })
-export class ResetPasswordComponent implements OnInit {
+export class MerResetComponent implements OnInit {
+ 
   resetPasswordForm: FormGroup;
   errorMessage: string = '';
  
@@ -54,27 +54,24 @@ export class ResetPasswordComponent implements OnInit {
       return;
     }
  
-    this.resetService.setPassword(
+    this.resetService.setMerchantPassword(
       this.email.value,
       this.newPassword.value,
       this.confirmPassword.value
     ).subscribe({
       next: response => {
         console.log(response);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/merchat-login']);
       },
       error: error => {
         if (error.status == 200) {
-          Swal.fire({
-            icon: 'success',
-            title: '',
-            text: 'Password Reset Successfully!'
-          });
-          this.router.navigate(['/login']);
+          console.log('Password set successfully');
+          this.router.navigate(['/merchant-login']);
         }
         console.error('Error setting password:', error);
         this.errorMessage = error.error.message;
       }
     });
   }
+ 
 }
