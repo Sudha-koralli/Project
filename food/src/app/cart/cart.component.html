@@ -1,5 +1,4 @@
 
-
 <div class="container">
   <h2>Delicious Delights Cart</h2>
   <table class="cart-table">
@@ -38,8 +37,9 @@
   <div class="cart-buttons">
     <button routerLink="/dashboard">Add More</button>
     <!-- <button routerLink="/order">Place Order</button> -->
-    <button [routerLink]="['/address-info']" [queryParams]="{ totalAmount: cart?.totalCost }">Checkout</button>
+    <button (click)="checkout()">Checkout</button>
 
   </div>
+  
 </div>
 <app-header></app-header>

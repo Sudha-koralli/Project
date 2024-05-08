@@ -25,9 +25,6 @@ export class CartComponent {
   totalAmount: number;
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.totalAmount = params['totalAmount'];
-    });
     const userIdString = sessionStorage.getItem('userId');
     if (!userIdString) {
       console.error('User ID not found in session storage');
@@ -54,6 +51,7 @@ export class CartComponent {
       }
     );
   }
+
   
   increaseOrReduceQuantityOfItem(itemId: number, quantity: number): void {
     const userIdString = sessionStorage.getItem('userId');
@@ -89,5 +87,15 @@ export class CartComponent {
         }
       );
     }
+     
+    checkout(): void {
+      if (this.cart && this.cart.totalCost) {
+        sessionStorage.setItem('totalAmount', JSON.stringify(this.cart.totalCost));
+        this.router.navigate(['/address-info']);
+      } else {
+        console.error('Cart or totalCost is not defined.');
+      }
+    }
+    
     
   }

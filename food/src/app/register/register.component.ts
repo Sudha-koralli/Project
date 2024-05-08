@@ -32,7 +32,8 @@ export class RegisterComponent{
       firstName: new FormControl(this.user.firstName, [
         Validators.required,
         Validators.minLength(4),
-        Validators.pattern(/^[a-zA-Z]*$/),
+        Validators.pattern(/^[a-zA-Z]+$/)
+
       ]),
       lastName: new FormControl(this.user.lastName, [
         Validators.required,

@@ -23,6 +23,7 @@ export class LoginComponent{
   error = '';
   isLoggedIn: boolean = false;
   displayName=''
+
   constructor(private router: Router, private loginservice:LoginService) {
     this.user = {} as Register;
   }
@@ -32,6 +33,7 @@ export class LoginComponent{
       password: new FormControl(this.user.password, [
         Validators.required,
         Validators.minLength(6),
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/),
       ]),
       email: new FormControl(this.user.email, [
         Validators.required,

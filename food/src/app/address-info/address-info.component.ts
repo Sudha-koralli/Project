@@ -1,53 +1,6 @@
-// import { Component, OnInit } from '@angular/core';
-// import { AddressService } from '../address.service';
-// import { Address } from '../models/address';
-// import { Router, ActivatedRoute } from '@angular/router';
-// @Component({
-//   selector: 'app-address-info',
-//   templateUrl: './address-info.component.html',
-//   styleUrls: ['./address-info.component.scss']
-// })
-// export class AddressInfoComponent implements OnInit {
-//   userId: number;
-//   addresses: Address[];
-//   totalAmount: number;
-
-//   constructor(private addressService: AddressService,private router: Router,private route: ActivatedRoute) { }
-
-//   ngOnInit(): void {
-//     // Get userId from session storage
-//     const user = JSON.parse(sessionStorage.getItem('userId'));
-//     if (user) {
-//       this.userId = user.userId;
-//       this.getAddressByUserId(this.userId);
-//     }
-//     this.route.queryParams.subscribe(params => {
-//       this.totalAmount = params['totalAmount'];
-//     });
-//   }
-
-//   getAddressByUserId(userId: number): void {
-//     this.addressService.getAddressById(userId)
-//       .subscribe(addresses => {
-//         this.addresses = addresses;
-//       });
-//   }
- 
-//   selectAddress(address: Address): void {
-//     // Implement functionality to handle the selection of the address
-//     console.log('Address selected:', address);
-//     // Navigate to the payment gateway route
-//     this.router.navigate(['/paymentgateway'], { queryParams: { totalAmount: this.totalAmount } });
-//   }
-  
-//   navigateToAddAddress(): void {
-//     // Navigate to the '/address' page
-//     this.router.navigate(['/adress']);
-//   }
-// }
-import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute,NavigationExtras} from '@angular/router';
 import { AddressService } from '../address.service';
 import { Address } from '../models/address';
 import Swal from 'sweetalert2';
@@ -58,7 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./address-info.component.scss']
 })
 export class AddressInfoComponent implements OnInit {
-  // @ViewChild('addressForm') addressFormRef!: ElementRef;
   userId: number;
   addresses: Address[];
   totalAmount: number;
@@ -73,7 +25,6 @@ export class AddressInfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Get userId from session storage
     const user = JSON.parse(sessionStorage.getItem('userId'));
     if (user) {
       this.userId = user.userId;
@@ -83,14 +34,14 @@ export class AddressInfoComponent implements OnInit {
       this.totalAmount = params['totalAmount'];
     });
 
-    // Initialize the address form
+  
     this.addressForm = this.fb.group({
-      buildingName: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
+      buildingName: ['', Validators.required, ],
       streetName: ['', Validators.required],
-      area: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
-      city: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
-      state: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
-      country: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
+      area: ['', Validators.required,],
+      city: ['', Validators.required, ],
+      state: ['', Validators.required, ],
+      country: ['', Validators.required, ],
       pinCode: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]]
     });
   }
@@ -101,13 +52,23 @@ export class AddressInfoComponent implements OnInit {
       
     });
   }
-
   selectAddress(address: Address): void {
-    console.log('Address selected:', address);
-    this.router.navigate(['/paymentgateway'], {
-      queryParams: { totalAmount: this.totalAmount }
-    });
-  }
+        console.log('Address selected:', address);
+        sessionStorage.setItem('AddressId', address.addressId.toString());
+        this.router.navigate(['/paymentgateway']);
+      }
+
+  // selectAddress(address: Address): void {
+  //   console.log('Address selected:', address);
+  //   const navigationExtras: NavigationExtras = {
+  //     state: {
+  //       totalAmount: this.totalAmount,
+  //       addressId: address.addressId
+  //     }
+  //   };
+  //   this.router.navigate(['/paymentgateway'], navigationExtras);
+  // }
+
   deleteAddress(address: any): void {
     const addressId = address.addressId; 
     this.addressService.deleteAddress(addressId)
@@ -119,15 +80,6 @@ export class AddressInfoComponent implements OnInit {
   }
   
   
-
-
-
-  scrollToForm() {
-    const addressForm = document.getElementById('addressForm');
-    if (addressForm) {
-      addressForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
   onSubmit(): void {
     if (this.addressForm.valid) {
       const userDataString = sessionStorage.getItem('userId');

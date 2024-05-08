@@ -1,74 +1,77 @@
 <div class="container">
-  <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="address-form">
-    <h2>Add Address</h2>
-    <div class="form-row">
-      <div class="form-group col">
-        <label for="buildingName">Building Name</label>
-        <input type="text" id="buildingName" formControlName="buildingName" required class="form-control form-control-sm" [required]="addressForm.get('buildingName').hasError('required')">
-        <div *ngIf="addressForm.get('buildingName').invalid && (addressForm.get('buildingName').dirty || addressForm.get('buildingName').touched)">
-          <div *ngIf="addressForm.get('buildingName').errors?.['required']">Building Name is required.</div>
+  <div class="Address-info">
+      <h2 style="margin-bottom: 40px; color: rgb(177, 70, 134); text-align: center;" >Add Address</h2>
+      <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="buildingName">Building Name</label>
+            <input type="text" id="buildingName" formControlName="buildingName" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('buildingName').invalid && (addressForm.get('buildingName').dirty || addressForm.get('buildingName').touched) }">
+            <div *ngIf="addressForm.get('buildingName').invalid && (addressForm.get('buildingName').dirty || addressForm.get('buildingName').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('buildingName').errors?.['required']">Building Name is required.</div>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="streetName">Street Name</label>
+            <input type="text" id="streetName" formControlName="streetName" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('streetName').invalid && (addressForm.get('streetName').dirty || addressForm.get('streetName').touched) }">
+            <div *ngIf="addressForm.get('streetName').invalid && (addressForm.get('streetName').dirty || addressForm.get('streetName').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('streetName').errors?.['required']">Street Name is required.</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group col">
-        <label for="streetName">Street Name</label>
-        <input type="text" id="streetName" formControlName="streetName" required class="form-control form-control-sm" [required]="addressForm.get('streetName').hasError('required')">
-        <div *ngIf="addressForm.get('streetName').invalid && (addressForm.get('streetName').dirty || addressForm.get('streetName').touched)">
-          <div *ngIf="addressForm.get('streetName').errors?.['required']">Street Name is required.</div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="area">Area</label>
+            <input type="text" id="area" formControlName="area" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('area').invalid && (addressForm.get('area').dirty || addressForm.get('area').touched) }">
+            <div *ngIf="addressForm.get('area').invalid && (addressForm.get('area').dirty || addressForm.get('area').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('area').errors?.['required']">Area is required.</div>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="city">City</label>
+            <input type="text" id="city" formControlName="city" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('city').invalid && (addressForm.get('city').dirty || addressForm.get('city').touched) }">
+            <div *ngIf="addressForm.get('city').invalid && (addressForm.get('city').dirty || addressForm.get('city').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('city').errors?.['required']">City is required.</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col">
-        <label for="area">Area</label>
-        <input type="text" id="area" formControlName="area" required class="form-control form-control-sm" [required]="addressForm.get('area').hasError('required')">
-        <div *ngIf="addressForm.get('area').invalid && (addressForm.get('area').dirty || addressForm.get('area').touched)">
-          <div *ngIf="addressForm.get('area').errors?.['required']">Area is required.</div>
+  
+    
+        <div class="row">
+          <div class="col-md-6">
+            <label for="state">State</label>
+            <input type="text" id="state" formControlName="state" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('state').invalid && (addressForm.get('state').dirty || addressForm.get('state').touched) }">
+            <div *ngIf="addressForm.get('state').invalid && (addressForm.get('state').dirty || addressForm.get('state').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('state').errors?.['required']">State is required.</div>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="country">Country</label>
+            <input type="text" id="country" formControlName="country" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('country').invalid && (addressForm.get('country').dirty || addressForm.get('country').touched) }">
+            <div *ngIf="addressForm.get('country').invalid && (addressForm.get('country').dirty || addressForm.get('country').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('country').errors?.['required']">Country is required.</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group col">
-        <label for="city">City</label>
-        <input type="text" id="city" formControlName="city" required class="form-control form-control-sm" [required]="addressForm.get('city').hasError('required')">
-        <div *ngIf="addressForm.get('city').invalid && (addressForm.get('city').dirty || addressForm.get('city').touched)" class="invalid-feedback">
-          <div *ngIf="addressForm.get('city').errors?.['required']">City is required.</div>
+  
+        <div class="row">
+          <div class="col-md-6">
+            <label for="pinCode">PinCode</label>
+            <input type="number" id="pinCode" formControlName="pinCode" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': addressForm.get('pinCode').invalid && (addressForm.get('pinCode').dirty || addressForm.get('pinCode').touched) }">
+            <div *ngIf="addressForm.get('pinCode').invalid && (addressForm.get('pinCode').dirty || addressForm.get('pinCode').touched)" class="invalid-feedback">
+              <div *ngIf="addressForm.get('pinCode').errors?.['required']">Pin Code is required.</div>
+              <div *ngIf="addressForm.get('pinCode').errors?.['pattern']">Pin Code must be 6 digits.</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col">
-        <label for="state">State</label>
-        <input type="text" id="state" formControlName="state" required class="form-control form-control-sm" [required]="addressForm.get('state').hasError('required')">
-        <div *ngIf="addressForm.get('state').invalid && (addressForm.get('state').dirty || addressForm.get('state').touched)" class="invalid-feedback">
-          <div *ngIf="addressForm.get('state').errors?.['required']">State is required.</div>
-        </div>
-      </div>
-      <div class="form-group col">
-        <label for="country">Country</label>
-        <input type="text" id="country" formControlName="country" required class="form-control form-control-sm" [required]="addressForm.get('country').hasError('required')">
-        <div *ngIf="addressForm.get('country').invalid && (addressForm.get('country').dirty || addressForm.get('country').touched)" class="invalid-feedback">
-          <div *ngIf="addressForm.get('country').errors?.['required']">Country is required.</div>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col">
-        <label for="pinCode">Pin Code</label>
-        <input type="number" id="pinCode" formControlName="pinCode" required class="form-control form-control-sm" [required]="addressForm.get('pinCode').hasError('required')">
-        <div *ngIf="addressForm.get('pinCode').invalid && (addressForm.get('pinCode').dirty || addressForm.get('pinCode').touched)" class="invalid-feedback">
-          <div *ngIf="addressForm.get('pinCode').errors?.['required']">Pin Code is required.</div>
-        </div>
-      </div>
-    </div>
+      
     <button type="submit" [disabled]="addressForm.invalid" class="btn btn-primary">Save Address</button>
-    <!-- <a href="/address-info" >Back &rarr; address-info</a> -->
+  
   </form>
 </div>
 
-
-
-
-
-
-<div class="container1">
 <table class="address-table">
     <thead>
       <tr>
@@ -91,14 +94,12 @@
         <td>{{ address.state }}</td>
         <td>{{ address.country }}</td>
         <td>{{ address.pinCode }}</td>
-        <td><button (click)="selectAddress(address) ">Select</button>
-          <button (click)="deleteAddress(address)">Delete</button> 
+        <td class="button-action">
+          <button class="btn btn-primary" style="background-color: rgb(39, 149, 72);" (click)="selectAddress(address) ">Select</button>
+          <button class="btn btn-danger"  (click)="deleteAddress(address)">Delete</button> 
         </td>
       </tr>
     </tbody>
   </table>
-  <div class="add-address-button" style="color: green;">
-  <button  (click)="scrollToForm()">Add New Address</button>
 </div>
-  <app-header></app-header>
-</div>
+<app-header></app-header>

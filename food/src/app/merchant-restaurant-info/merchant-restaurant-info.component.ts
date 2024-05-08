@@ -42,7 +42,7 @@ export class MerchantRestaurantInfoComponent implements OnInit {
       merchantId: [{ value: '', disabled: true }],
       restaurantName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^[a-zA-Z\s]+$/)]],
       managerName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^[a-zA-Z\s]+$/)]],
-      contact: ['', [Validators.required, Validators.minLength(10), Validators.pattern(/^\d+$/)]],
+      contact: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern(/^\d+$/) ]],
       addressLine: ['', Validators.required],
       city: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^[a-zA-Z]+$/)]],
       state: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^[a-zA-Z]+$/)]],
@@ -69,6 +69,7 @@ export class MerchantRestaurantInfoComponent implements OnInit {
         .subscribe({
           next: (response) => {
             console.log('Restaurant added successfully:', response);
+            sessionStorage.setItem('restaurantData', JSON.stringify(response));
             Swal.fire('Success', 'Restaurant added successfully', 'success');
             this.router.navigate(['/view-restaurant']);
           },

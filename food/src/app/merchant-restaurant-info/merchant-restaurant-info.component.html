@@ -11,7 +11,7 @@
       <div class="form-group col-md-6">
         <label for="managerName">Manager Name</label>
         <input type="text" id="managerName" name="managerName" formControlName="managerName" required class="form-control form-control-sm" [ngClass]="{ 'is-invalid': merchantForm.get('managerName').invalid && merchantForm.get('managerName').touched }">
-        <div *ngIf="merchantForm.get('managerName').invalid && merchantForm.get('managerName').touched" class="invalid-feedback">Manager Name is required and should contain only alphabets.</div>
+        <div *ngIf="merchantForm.get('managerName').invalid && merchantForm.get('managerName').touched" class="invalid-feedback">Manager Name is required & contain only alphabets</div>
       </div>
     </div>
     <div class="row">

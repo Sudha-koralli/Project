@@ -17,13 +17,15 @@ h2 {
     margin-bottom: 20px;
     color: rgb(249, 248, 246);
     margin-left: 49px;
+    
 }
 
 table {
     margin-top: 20px;
-    width: 60%;
+    width: 70%;
     border-collapse: collapse;
     margin-left: 50px;
+    // overflow-y: auto;
 }
 
 th, td {
@@ -60,4 +62,17 @@ tbody tr:hover {
 .no-orders-container p {
     font-style: italic;
     color: #666;
+}
+.scrollable-table-body {
+    display: block;
+    max-height: 400px; 
+    overflow-y: auto; 
+}
+ 
+table {
+    margin-top: 20px;
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 50px;
+    
 }

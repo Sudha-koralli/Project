@@ -19,8 +19,6 @@ import { SupportComponent } from './support/support.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { FooterComponent } from './footer/footer.component';
-import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
-import { OrderSuccessComponent } from './orders/order-success/order-success.component';
 import { HeaderComponent } from './header/header.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -45,12 +43,12 @@ import { CommonLoginDashboardComponent } from './common-login-dashboard/common-l
 import { AddressInfoComponent } from './address-info/address-info.component';
 import { MerForgotComponent } from './mer-forgot/mer-forgot.component';
 import { MerResetComponent } from './mer-reset/mer-reset.component';
+import { TeamComponent } from './team/team.component';
+import { CustomerOrderDetailsComponent } from './customer-order-details/customer-order-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyOrdersComponent,
-    OrderSuccessComponent,
     FooterComponent,
     CartComponent,
     LoginComponent,
@@ -86,7 +84,9 @@ import { MerResetComponent } from './mer-reset/mer-reset.component';
     CommonLoginDashboardComponent,
     AddressInfoComponent,
     MerForgotComponent,
-    MerResetComponent
+    MerResetComponent,
+    TeamComponent,
+    CustomerOrderDetailsComponent
   
   ],
   imports: [

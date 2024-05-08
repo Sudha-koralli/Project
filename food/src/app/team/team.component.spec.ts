@@ -1,17 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MyOrdersComponent } from './my-orders.component';
-describe('MyOrdersComponent', () => {
-  let component: MyOrdersComponent;
-  let fixture: ComponentFixture<MyOrdersComponent>;
+
+import { TeamComponent } from './team.component';
+
+describe('TeamComponent', () => {
+  let component: TeamComponent;
+  let fixture: ComponentFixture<TeamComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyOrdersComponent ]
+      declarations: [ TeamComponent ]
     })
     .compileComponents();
-    fixture = TestBed.createComponent(MyOrdersComponent);
+
+    fixture = TestBed.createComponent(TeamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

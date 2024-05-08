@@ -41,7 +41,7 @@ this.isLoggedIn=true
     this.router.navigate(['cart']);
   }
   onMyOrders() {
-    this.router.navigate(['my-orders']);
+    this.router.navigate(['/customer-order-details']);
   }
 
   }

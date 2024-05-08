@@ -36,8 +36,17 @@
     // justify-content: center;
    
 }
-.payment-button button {
-    // padding: 10px 50px; 
-    // font-size: 18px; 
-    background-color: green;
+// .btn-pay {
+//     // padding: 10px 50px; 
+//     // font-size: 18px; 
+//     background-color: green;
+// }
+.payment-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn-back {
+  background-color: #6c757d; 
+  color: #fff;
 }

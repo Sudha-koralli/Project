@@ -8,8 +8,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { OfferComponent } from './offer/offer.component';
 import { SupportComponent } from './support/support.component';
-import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
-import { OrderSuccessComponent } from './orders/order-success/order-success.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CartComponent } from './cart/cart.component';
@@ -35,6 +33,8 @@ import { CommonLoginDashboardComponent } from './common-login-dashboard/common-l
 import { AddressInfoComponent } from './address-info/address-info.component';
 import { MerForgotComponent } from './mer-forgot/mer-forgot.component';
 import { MerResetComponent } from './mer-reset/mer-reset.component';
+import { TeamComponent } from './team/team.component';
+import { CustomerOrderDetailsComponent } from './customer-order-details/customer-order-details.component';
 
 
 const routes: Routes = [
@@ -67,12 +67,12 @@ const routes: Routes = [
   { path:'support',component:SupportComponent },
   { path:'dashboard',component:DashboardComponent ,canActivate: [AuthguardService]},
   // { path:'offer',component:OfferComponent },
-  { path: 'my-orders', component: MyOrdersComponent },
-  { path: 'confirm',component:OrderSuccessComponent},
   { path: 'restaurant-menu/:restaurantId', component: RestaurantMenuComponent },
   {path:'category-menu/:categoryId',component:CategoryMenuComponent},
   { path: 'forgot-password', component: ForgotComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  {path:'team',component:TeamComponent},
+  {path:'customer-order-details',component:CustomerOrderDetailsComponent},
   
   {
     path: 'user-profile/:userId',

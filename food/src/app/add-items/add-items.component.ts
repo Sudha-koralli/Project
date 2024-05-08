@@ -28,12 +28,12 @@ export class AddItemsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private itemService: ItemService, private router: Router) {
     this.itemForm = this.fb.group({
-      itemName: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
-      description: ['', Validators.required,  Validators.pattern(/^[a-zA-Z]*$/),],
+      itemName: ['', Validators.required,],
+      description: ['', Validators.required,  ],
       itemimageUrl: ['', Validators.required],
-      categoryId: ['', Validators.required,Validators.pattern(/^\d+$/),],
+      categoryId: ['', Validators.required,],
       // restaurantId: ['', Validators.required],
-      cost: ['', Validators.required,Validators.pattern(/^\d+$/),]
+      cost: ['', Validators.required,]
     });
   }
 
@@ -42,12 +42,10 @@ export class AddItemsComponent implements OnInit {
 
   addItem(): void {
     if (this.itemForm.valid) {
-      // Retrieve restaurantData from session storage
       const restaurantDataString = sessionStorage.getItem('restaurantData');
       if (restaurantDataString) {
         const restaurantData = JSON.parse(restaurantDataString);
-        const restaurantId = restaurantData.restaurantId; // Extract restaurantId
-        // Proceed with adding the item
+        const restaurantId = restaurantData.restaurantId;
         this.newItem = this.itemForm.value;
         this.itemService.addItemToRestaurant(this.newItem, restaurantId).subscribe({
           next: (response) => {
